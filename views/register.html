@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styleforReg.css">
+    <title>Register</title>
+</head>
+<body>
+    <div class="window">
+        <div class="window-header">
+            <span class="window-title">Register</span>
+            <div class="window-controls">
+                <span class="window-control"><a href="/">X</a></span>
+            </div>
+        </div>
+        <div class="window-content">
+            <form action="/register" method="post">
+                <label for="login">Login:</label>
+                <input type="text" id="login" name="login" required><br><br>
+        
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required><br><br>
+                <label for="rpassword">Repeat password:</label>
+                <input type="password" id="rpassword" name="rpassword" required><br><br>
+        
+                <label for="full_name">Full name:</label>
+                <input type="text" id="full_name" name="full_name"><br><br>
+        
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email_address" required><br><br>
+        
+                <input type="submit" value="Register">
+            </form>
+        </div>
+    </div>
+    
+    <div id="error-message" class="error-message"></div>
+</body>
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+        const error = urlParams.get('error');
+        if (error) {
+            const errorMessageElement = document.getElementById('error-message');
+            errorMessageElement.textContent = decodeURIComponent(error);
+            errorMessageElement.style.display = 'block';
+        }
+  </script>
+</html>

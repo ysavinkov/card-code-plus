@@ -1,0 +1,10 @@
+{
+    "database": {
+        "host": "localhost",
+        "user": "ccpadmin",
+        "password": "securepass",
+        "database": "ccp", 
+        "connectionLimit": 10,
+        "charset": "utf8mb4"
+    }
+}

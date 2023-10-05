@@ -1,0 +1,115 @@
+/* Reset some default browser styles */
+body, h1, form {
+    margin: 0;
+    padding: 0;
+}
+
+/* Set a background color similar to Windows 95 */
+body {
+    background-color: #008080;
+    font-family: Arial, sans-serif;
+}
+
+/* Create a Windows 95-style window */
+.window {
+    background-color: #c0c0c0;
+    width: 400px;
+    margin: 20px auto;
+    border: 2px solid #000;
+    border-radius: 5px;
+    box-shadow: 2px 2px 0px 0px #000;
+}
+
+/* Style the window header */
+.window-header {
+    background-color: blue;
+    color: white;
+    padding: 5px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Style the window title */
+.window-title {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* Style the window controls */
+.window-controls {
+    display: flex;
+}
+
+.window-control {
+    width: 12px;
+    height: 12px;
+    background-color: #c0c0c0;
+    border: 1px solid #000;
+    margin-left: 5px;
+    cursor: pointer;
+    color: black;
+    text-align: center;
+    box-shadow: 2px 2px 0px 0px #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Style the window content */
+.window-content {
+    padding: 20px;
+}
+
+/* Style labels for form fields */
+label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Style text input fields */
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 4px;
+    margin-bottom: 10px;
+    border: 1px solid #000;
+    border-radius: 3px;
+}
+
+/* Style submit button */
+button[type="submit"] {
+    background-color: #008080;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-weight: bold;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Style the "Don't have an account?" link */
+a {
+    padding: 10px;
+    display: block;
+    text-align: center;
+    background-color: #008080;
+    color: white;
+    text-decoration: none;
+    border: 2px solid #000;
+    border-radius: 3px;
+    font-weight: bold;
+}
+
+/* Style the error message div */
+#error-message {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 10px;
+    color: darkred;
+    font-size: 16px;
+}

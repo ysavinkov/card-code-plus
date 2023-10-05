@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styleForMain.css">
+    <title>Card Code Plus</title>
+</head>
+<body>
+    <div class="window">
+        <div class="window-header">
+            <span class="window-title">Card Code Plus</span>
+            <div class="window-controls">
+                <span class="window-control"></span>
+                <span class="window-control"></span>
+                <span class="window-control"></span>
+            </div>
+        </div>
+        <div class="window-content">
+            <div class="sidebar">
+                <div class="player-name">Player1</div>
+                <div class="game-count">Games 0</div>
+                <div class="game-winned">Games 0</div>
+                <div class="game-lost">Games 0</div>
+                <a href="/reminder">Check email</a>
+                <a href="/logout">Logout</a>
+            </div>
+
+            <div class="content">
+                <h1>Main Page</h1>
+                <button id="redirectButton">Play!</button>
+            </div>
+        </div>
+    </div>
+    
+</body>
+<script>
+    const redirectButton = document.getElementById('redirectButton');
+
+    redirectButton.addEventListener('click', function() {
+        window.location.href = 'http://localhost:8080';
+    });
+    fetch('/get-player-name')
+    .then((response) => response.json())
+    .then((data) => {
+        const playerNameElement = document.querySelector('.player-name');
+        playerNameElement.textContent = data.name; 
+        const playerAllGamesElement = document.querySelector('.game-count');
+        playerAllGamesElement.textContent = "Games: " + data.games;
+        const playerWinGamesElement = document.querySelector('.game-winned');
+        playerWinGamesElement.textContent = "Winned: " +data.winned;
+        const playerLosGamesElement = document.querySelector('.game-lost');
+        playerLosGamesElement.textContent = "Lost: " + data.lost;
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+
+</script>
+</html>
