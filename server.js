@@ -47,7 +47,6 @@ io.on('connection', async (socket) => {
     try {
         const { id, login, games, winned } = socket.handshake.session.user;
 
-<<<<<<< HEAD
         if (Object.keys(players).length % 2 === 1) {
             // Create a new room when an odd number of players connect
             names[0] = login;
@@ -70,9 +69,7 @@ io.on('connection', async (socket) => {
             socket.join(roomID);
             socket.roomID = roomID;
             players[socket.id] = roomID; // Store the room ID associated with the player
-            console.log(
-                `A user with Socket ID ${socket.id} was added to the room! Room ID: ${roomID}`
-            );
+            console.log(`A user with Socket ID ${socket.id} was added to the room! Room ID: ${roomID}`);
             console.log(`Rooms: ${rooms}`);
             console.log(`Players object: ${Object.entries(players)}`);
             io.to(roomID).emit('setRoomId', roomID);
@@ -85,37 +82,6 @@ io.on('connection', async (socket) => {
         }
     } catch (err) {
         console.error(err);
-=======
-    if (Object.keys(players).length % 2 === 1) {
-        // Create a new room when an odd number of players connect
-        const roomID = `room_${socket.id}`;
-        socket.join(roomID);
-        rooms.push(roomID);
-        socket.roomID = roomID;
-        players[socket.id] = roomID; // Store the room ID associated with the player
-        console.log(`A room was created! Room ID: ${roomID}`);
-        console.log(`Rooms: ${rooms}`);
-        console.log(`Players object: ${Object.entries(players)}`);
-        io.to(roomID).emit('isPlayerA');
-    } else {
-        // Assign the second player to the last created room
-        cards = await Card.getAllCards();
-        const roomID = rooms[rooms.length - 1];
-        socket.join(roomID);
-        socket.roomID = roomID;
-        players[socket.id] = roomID; // Store the room ID associated with the player
-        console.log(`A user with Socket ID ${socket.id} was added to the room! Room ID: ${roomID}`);
-        console.log(`Rooms: ${rooms}`);
-        console.log(`Players object: ${Object.entries(players)}`);
-        io.to(roomID).emit('setRoomId', roomID);
-        io.to(roomID).emit('setCards', cards);
-        io.to(roomID).emit('dealCards');
-        // const randomBoolean = true;
-        const randomBoolean = Math.random() < 0.5;
-        // console.log(randomBoolean);
-        io.to(roomID).emit('updateTurn', randomBoolean);
-        io.to(socket.id).emit('updateTurn', !randomBoolean);
->>>>>>> refs/remotes/origin/kontakt1
     }
 
     socket.on('updateTurn', (turn) => {
@@ -128,7 +94,6 @@ io.on('connection', async (socket) => {
         io.to(socket.roomID).emit('dealCards');
     });
 
-<<<<<<< HEAD
     socket.on('endGame', (name) => {
         // console.log('I`m here');
         let user = new User();
@@ -142,10 +107,6 @@ io.on('connection', async (socket) => {
         } catch (err) {
             console.error(err);
         }
-=======
-    socket.on('endGame', () => {
-        console.log('I`m here');
->>>>>>> refs/remotes/origin/kontakt1
         io.to(socket.roomID).emit('endGame', `http://localhost:${PORT}`);
     });
 
@@ -205,18 +166,17 @@ app.post('/login', async (req, res) => {
     }
 });
 
-/*
-  app.get('/profile', (req, res) => {
-    if (req.session.user) {
-        const { login, winned } = req.session.user;
-        res.send(`Welcome, ${login}
-        <br><a href="/logout">Logout</a>
-        <br><a href="/reminder">remind me a pass</a>`);
-    } else {
-        res.redirect('/');
-    }
-  });
-*/
+// app.get('/profile', (req, res) => {
+//     if (req.session.user) {
+//         const { login, winned } = req.session.user;
+//         res.send(`Welcome, ${login}
+//     <br><a href="/logout">Logout</a>
+//     <br><a href="/reminder">remind me a pass</a>`);
+//     } else {
+//         res.redirect('/');
+//     }
+// });
+
 app.get('/reminder', (req, res) => {
     res.sendFile(__dirname + '/views/emailremainder.html');
 });
@@ -316,11 +276,7 @@ app.post('/register', async (req, res) => {
         }
     } catch (error) {
         console.error(error);
-        res.redirect(
-            `/registration?error=${encodeURIComponent(
-                'An error occurred while registering the user.'
-            )}`
-        );
+        res.redirect(`/registration?error=${encodeURIComponent('An error occurred while registering the user.')}`);
     }
 });
 

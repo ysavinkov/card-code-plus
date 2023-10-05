@@ -22,10 +22,6 @@ export default class Game extends Phaser.Scene {
 
     create() {
         this.cameras.main.setBackgroundColor('#008080');
-<<<<<<< HEAD
-=======
-        // backgroundColor: '#008080',
->>>>>>> refs/remotes/origin/kontakt1
 
         this.scale.displaySize.setAspectRatio(this.game.config.width / this.game.config.height);
         this.scale.refresh();
@@ -33,13 +29,8 @@ export default class Game extends Phaser.Scene {
         this.roomID;
         this.isPlayerA = false;
         this.isYourTurn;
-<<<<<<< HEAD
         this.allCards = [];
         this.opponentBacks = [];
-=======
-        this.opponentBacks = [];
-        this.allCards = [];
->>>>>>> refs/remotes/origin/kontakt1
         this.yourCards = {};
         this.timesPressed;
 
@@ -53,22 +44,13 @@ export default class Game extends Phaser.Scene {
         this.redBugs = 0;
         this.redEnergy = 7;
 
-<<<<<<< HEAD
         this.add.image(155, 620, 'avatar').setScale(0.4, 0.4);
-        this.yourNameLabel = this.add
-            .text(70, 480, '')
-            .setFontSize(24)
-            .setFontFamily('Trebuchet MS');
+        this.yourNameLabel = this.add.text(70, 480, '').setFontSize(24).setFontFamily('Trebuchet MS');
 
         this.add.image(1380, 100, 'avatar').setScale(0.4, 0.4);
 
-        this.opponentNameLabel = this.add
-            .text(1300, 220, '')
-            .setFontSize(24)
-            .setFontFamily('Trebuchet MS');
+        this.opponentNameLabel = this.add.text(1300, 220, '').setFontSize(24).setFontFamily('Trebuchet MS');
 
-=======
->>>>>>> refs/remotes/origin/kontakt1
         // your energy bar
         this.yourEnergyBox = this.add.graphics();
         this.yourEnergyBarBack = this.add.graphics();
@@ -95,15 +77,7 @@ export default class Game extends Phaser.Scene {
         this.yourCodesBox = this.add.graphics();
         this.yourCodesBarBack = this.add.graphics();
         this.yourCodesBar = this.add.graphics();
-<<<<<<< HEAD
-        this.yourCodesBarLabel = this.add
-            .text(1415, 573, `0% code`)
-            .setFontSize(22)
-            .setFontFamily('Trebuchet MS')
-            .setColor('#000000');
-=======
         this.yourCodesBarLabel = this.add.text(1415, 573, `0% code`).setFontSize(22).setFontFamily('Trebuchet MS').setColor('#000000');
->>>>>>> refs/remotes/origin/kontakt1
 
         this.yourCodesBox.fillStyle(0xc0c0c0, 1);
         this.yourCodesBox.fillRect(1200, 560, 320, 50);
@@ -119,15 +93,7 @@ export default class Game extends Phaser.Scene {
         this.yourBugsBox = this.add.graphics();
         this.yourBugsBarBack = this.add.graphics();
         this.yourBugsBar = this.add.graphics();
-<<<<<<< HEAD
-        this.yourBugsBarLabel = this.add
-            .text(1415, 653, `0% bugs`)
-            .setFontSize(22)
-            .setFontFamily('Trebuchet MS')
-            .setColor('#000000');
-=======
         this.yourBugsBarLabel = this.add.text(1415, 653, `0% bugs`).setFontSize(22).setFontFamily('Trebuchet MS').setColor('#000000');
->>>>>>> refs/remotes/origin/kontakt1
 
         this.yourBugsBox.fillStyle(0xc0c0c0, 1);
         this.yourBugsBox.fillRect(1200, 640, 320, 50);
@@ -162,15 +128,7 @@ export default class Game extends Phaser.Scene {
         this.opponentCodesBox = this.add.graphics();
         this.opponentCodesBarBack = this.add.graphics();
         this.opponentCodesBar = this.add.graphics();
-<<<<<<< HEAD
-        this.opponentCodesBarLabel = this.add
-            .text(240, 40, `0% code`)
-            .setFontSize(22)
-            .setFontFamily('Trebuchet MS')
-            .setColor('#000000');
-=======
         this.opponentCodesBarLabel = this.add.text(240, 40, `0% code`).setFontSize(22).setFontFamily('Trebuchet MS').setColor('#000000');
->>>>>>> refs/remotes/origin/kontakt1
 
         this.opponentCodesBox.fillStyle(0xc0c0c0, 1);
         this.opponentCodesBox.fillRect(25, 25, 320, 50);
@@ -186,15 +144,7 @@ export default class Game extends Phaser.Scene {
         this.opponentBugsBox = this.add.graphics();
         this.opponentBugsBarBack = this.add.graphics();
         this.opponentBugsBar = this.add.graphics();
-<<<<<<< HEAD
-        this.opponentBugsBarLabel = this.add
-            .text(240, 120, `0% bugs`)
-            .setFontSize(22)
-            .setFontFamily('Trebuchet MS')
-            .setColor('#000000');
-=======
         this.opponentBugsBarLabel = this.add.text(240, 120, `0% bugs`).setFontSize(22).setFontFamily('Trebuchet MS').setColor('#000000');
->>>>>>> refs/remotes/origin/kontakt1
 
         this.opponentBugsBox.fillStyle(0xc0c0c0, 1);
         this.opponentBugsBox.fillRect(25, 105, 320, 50);
@@ -217,11 +167,6 @@ export default class Game extends Phaser.Scene {
         this.backgroundOpponent = this.zone.renderBackground(this.opponentDropZone, 0xf5f5f5);
 
         // Render the outlines for second player
-<<<<<<< HEAD
-=======
-        // blue - 0xadd8e6
-        // red - 0xff69b4
->>>>>>> refs/remotes/origin/kontakt1
         this.outlinePlayer = this.zone.renderOutline(this.playerDropZone, 0xc0c0c0);
         this.outlineOpponent = this.zone.renderOutline(this.opponentDropZone, 0xc0c0c0);
 
@@ -240,15 +185,6 @@ export default class Game extends Phaser.Scene {
 
         this.socket.on('isPlayerA', () => {
             self.isPlayerA = true;
-<<<<<<< HEAD
-
-=======
->>>>>>> refs/remotes/origin/kontakt1
-            // change colors if it's player A
-            // blue - 0xadd8e6
-            // self.outlinePlayer = self.zone.renderOutline(self.playerDropZone, 0xadd8e6);
-            // red - 0xff69b4
-            // self.outlineOpponent = self.zone.renderOutline(self.opponentDropZone, 0xff69b4);
         });
 
         this.socket.on('setRoomId', (roomID) => {
@@ -262,10 +198,7 @@ export default class Game extends Phaser.Scene {
             // setting backs
             for (let i = 0; i < 5; i++) {
                 let opponentCard = new Card(self);
-<<<<<<< HEAD
-                opponentCard = opponentCard
-                    .render(475 + i * 150, 80, 'cards', 0.3, 14)
-                    .disableInteractive();
+                opponentCard = opponentCard.render(475 + i * 150, 80, 'cards', 0.3, 14).disableInteractive();
                 self.opponentBacks[i] = opponentCard;
             }
             // filling energy bars
@@ -288,13 +221,6 @@ export default class Game extends Phaser.Scene {
                 self.opponentNameLabel.setText(self.blueName).setColor('#add8e6');
             }
             console.log(` red: ${self.redName}\n blue: ${self.blueName}\n `);
-=======
-                opponentCard = opponentCard.render(475 + i * 150, 80, 'cards', 0.3, 14).disableInteractive();
-                self.opponentBacks[i] = opponentCard;
-            }
-            this.yourEnergyBar.fillRect(10, 715, 30, -(35 * 7));
-            this.opponentEnergyBar.fillRect(1496, 10, 30, 35 * 7);
->>>>>>> refs/remotes/origin/kontakt1
         });
 
         this.socket.on('dealCards', () => {
@@ -324,50 +250,30 @@ export default class Game extends Phaser.Scene {
                 self.blueEnergy = 7;
                 self.redEnergy = 7;
 
-<<<<<<< HEAD
-=======
-                // self.blueCode += 15;
-                // self.redCode += 15;
-
->>>>>>> refs/remotes/origin/kontakt1
                 self.yourEnergyBar.fillRect(10, 715, 30, -(35 * self.blueEnergy));
                 self.opponentEnergyBar.fillRect(1495, 10, 30, 35 * self.redEnergy);
 
                 let diff;
-<<<<<<< HEAD
-
-=======
->>>>>>> refs/remotes/origin/kontakt1
                 if (self.redCode > 75 && self.redBugs > 25) {
                     diff = self.redCode - 75;
                     self.redBugs -= diff;
                     self.redCode = 75;
                 }
-<<<<<<< HEAD
                 if (self.redBugs > 25) {
                     diff = self.redBugs - 25;
-=======
-                if (self.redBugs > 25 && self.redCode > 50) {
-                    diff = self.redCode - self.redBugs;
->>>>>>> refs/remotes/origin/kontakt1
                     self.redCode -= diff;
                     self.redBugs = 25;
                 }
 
-<<<<<<< HEAD
                 if (self.blueCode > 75 && self.blueBugs > 25) {
-=======
-                if (self.blueCode > 75 && self.redBugs > 25) {
->>>>>>> refs/remotes/origin/kontakt1
                     diff = self.blueCode - 75;
                     self.blueBugs -= diff;
                     self.blueCode = 75;
                 }
-<<<<<<< HEAD
+
                 if (self.blueBugs > 25) {
                     diff = self.blueBugs - 25;
                     self.blueCode -= diff;
-                    self.blueBugs = 25;
                 }
 
                 if (self.blueCode < 0) {
@@ -422,76 +328,16 @@ export default class Game extends Phaser.Scene {
                 // red code : ${self.redCode}\n
                 // red bugs : ${self.redBugs}\n
                 // red energy : ${self.redEnergy}\n`);
-=======
+
                 if (self.blueBugs > 25 && self.blueCode > 50) {
                     diff = self.blueCode - self.blueBugs;
                     self.blueCode -= diff;
-                    self.blueBugs = 25;
-                }
 
-                if (self.blueCode < 0) {
-                    self.blueCode = 0;
-                }
-                if (self.blueBugs < 0) {
-                    self.blueBugs = 0;
-                }
+                    self.playerCardsGroup.clear(true, true);
+                    self.opponentCardsGroup.clear(true, true);
 
-                if (self.redCode < 0) {
-                    self.redCode = 0;
+                    self.socket.emit('dealCards');
                 }
-                if (self.redBugs < 0) {
-                    self.redBugs = 0;
-                }
-
-                if (self.blueCode > 100) {
-                    self.blueCode = 100;
-                }
-                if (self.blueBugs > 100) {
-                    self.blueBugs = 100;
-                }
-
-                if (self.redCode > 100) {
-                    self.redCode = 100;
-                }
-                if (self.redBugs > 100) {
-                    self.redBugs = 100;
-                }
-
-                updateProgressBars();
-
-                if (self.blueCode === 100 && self.redCode === 100) {
-                    alert('Friendship wins! (Tie)');
-                    self.socket.emit('endGame');
-                }
-                if (self.blueCode === 100) {
-                    // TODO: replace with username from db
-                    alert('blue Wins');
-                    self.socket.emit('endGame');
-                }
-                if (self.redCode === 100) {
-                    // TODO: replace with username from db
-                    alert('red Wins');
-                    self.socket.emit('endGame');
-                }
-                //self.socket.emit("endGame");
-
-                console.log(`End 
-                blue code : ${self.blueCode}\n
-                blue bugs : ${self.blueBugs}\n
-                blue energy : ${self.blueEnergy}\n
-                red code : ${self.redCode}\n
-                red bugs : ${self.redBugs}\n
-                red energy : ${self.redEnergy}\n`);
->>>>>>> refs/remotes/origin/kontakt1
-
-                self.timesPressed = 0;
-                self.playerDropZone.data.values.cards = 0;
-                self.opponentDropZone.data.values.cards = 0;
-
-                self.playerCardsGroup.clear(true, true);
-                self.opponentCardsGroup.clear(true, true);
-
-                self.socket.emit('dealCards');
             }
         });
 
@@ -527,11 +373,6 @@ export default class Game extends Phaser.Scene {
             }
         });
 
-<<<<<<< HEAD
-=======
-        // this.roomLabel = this.add.text(25, 650, '').setFontSize(24).setFontFamily('Trebuchet MS').setColor('#00ffff');
-
->>>>>>> refs/remotes/origin/kontakt1
         this.infoLabel = this.add
             .text(25, 350, 'Waiting for the second player...')
             .setFontSize(24)
@@ -542,11 +383,7 @@ export default class Game extends Phaser.Scene {
 
         this.wantsToEndRound = this.add.text(1185, 450, '').setFontSize(24).setFontFamily('Trebuchet MS').setColor('#00ffff');
 
-        this.wantsToEndRound = this.add
-            .text(1185, 450, '')
-            .setFontSize(24)
-            .setFontFamily('Trebuchet MS')
-            .setColor('#00ffff');
+        this.wantsToEndRound = this.add.text(1185, 450, '').setFontSize(24).setFontFamily('Trebuchet MS').setColor('#00ffff');
 
         this.endRound.on('pointerdown', () => {
             if (self.isYourTurn) {
@@ -595,7 +432,6 @@ export default class Game extends Phaser.Scene {
                 energy = self.blueEnergy;
             }
 
-<<<<<<< HEAD
             // console.log(
             //     'Energy: ' +
             //         energy +
@@ -605,11 +441,6 @@ export default class Game extends Phaser.Scene {
             //         selfHarm +
             //         '\n'
             // );
-=======
-            console.log(
-                'Energy: ' + energy + ' self.allCards' + self.allCards[cardObject.index].attributes.energy + ' selfHarm ' + selfHarm + '\n'
-            );
->>>>>>> refs/remotes/origin/kontakt1
             cardObject.setTint();
             if (
                 dropZone === self.opponentDropZone ||
@@ -646,7 +477,6 @@ export default class Game extends Phaser.Scene {
             //for(let i = 0; i < self.allCards.length; i++){
             //    console.log('card['+i+']:' + self.allCards[i].attributes.name + '\n');
             //}
-<<<<<<< HEAD
             // console.log('card:' + self.allCards[index].attributes.name + '\n');
             let target, oppositeTarget;
             if (playerA) {
@@ -657,35 +487,12 @@ export default class Game extends Phaser.Scene {
                 oppositeTarget = 'user';
             }
 
-            if (
-                self.allCards[index].attributes.target == target ||
-                self.allCards[index].attributes.target == 'all'
-            ) {
-=======
-            console.log('card:' + self.allCards[index].attributes.name + '\n');
-            let target, opositeTarget;
-            if (playerA) {
-                target = 'user';
-                opositeTarget = 'enemy';
-            } else {
-                target = 'enemy';
-                opositeTarget = 'user';
-            }
-
             if (self.allCards[index].attributes.target == target || self.allCards[index].attributes.target == 'all') {
->>>>>>> refs/remotes/origin/kontakt1
                 self.blueCode += self.allCards[index].attributes.codes;
                 self.blueBugs += self.allCards[index].attributes.bugs;
                 self.blueEnergy += self.allCards[index].attributes.energy;
             }
-<<<<<<< HEAD
-            if (
-                self.allCards[index].attributes.target == oppositeTarget ||
-                self.allCards[index].attributes.target == 'all'
-            ) {
-=======
-            if (self.allCards[index].attributes.target == opositeTarget || self.allCards[index].attributes.target == 'all') {
->>>>>>> refs/remotes/origin/kontakt1
+            if (self.allCards[index].attributes.target == oppositeTarget || self.allCards[index].attributes.target == 'all') {
                 self.redCode += self.allCards[index].attributes.codes;
                 self.redBugs += self.allCards[index].attributes.bugs;
                 self.redEnergy += self.allCards[index].attributes.energy;
@@ -720,10 +527,6 @@ export default class Game extends Phaser.Scene {
             if (self.blueEnergy > 7) {
                 self.blueEnergy = 7;
             }
-<<<<<<< HEAD
-=======
-
->>>>>>> refs/remotes/origin/kontakt1
             if (self.redCode > 100) {
                 self.redCode = 100;
             }
@@ -734,7 +537,6 @@ export default class Game extends Phaser.Scene {
                 self.redEnergy = 7;
             }
 
-<<<<<<< HEAD
             // console.log(`
             //     blue code : ${self.blueCode}\n
             //     blue bugs : ${self.blueBugs}\n
@@ -742,15 +544,6 @@ export default class Game extends Phaser.Scene {
             //     red code : ${self.redCode}\n
             //     red bugs : ${self.redBugs}\n
             //     red energy : ${self.redEnergy}\n`);
-=======
-            console.log(`
-                blue code : ${self.blueCode}\n
-                blue bugs : ${self.blueBugs}\n
-                blue energy : ${self.blueEnergy}\n
-                red code : ${self.redCode}\n
-                red bugs : ${self.redBugs}\n
-                red energy : ${self.redEnergy}\n`);
->>>>>>> refs/remotes/origin/kontakt1
 
             updateProgressBars();
 

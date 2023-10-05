@@ -4,11 +4,7 @@ import Game from './scenes/game';
 const config = {
     type: Phaser.AUTO,
     scale: {
-<<<<<<< HEAD
         mode: Phaser.Scale.FIT,
-=======
-        mode: Phaser.Scale.STRETCH,
->>>>>>> refs/remotes/origin/kontakt1
         parent: 'card-code-plus',
         autoCenter: Phaser.Scale.CENTER_BOTH,
         width: '100%',

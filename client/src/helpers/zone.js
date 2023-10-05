@@ -6,17 +6,8 @@ export default class Zone {
             const centerY = 450;
 
             // Create two separate drop zones, one for your cards and one for enemy cards
-<<<<<<< HEAD
-            const playerDropZone = scene.add
-                .zone(775, centerY, width, height / 2)
-                .setRectangleDropZone(width, height / 2);
-            const opponentDropZone = scene.add
-                .zone(775, centerY - height / 2, width, height / 2)
-                .setRectangleDropZone(width, height / 2);
-=======
             const playerDropZone = scene.add.zone(775, centerY, width, height / 2).setRectangleDropZone(width, height / 2);
             const opponentDropZone = scene.add.zone(775, centerY - height / 2, width, height / 2).setRectangleDropZone(width, height / 2);
->>>>>>> refs/remotes/origin/kontakt1
 
             // Set data for each drop zone to keep track of cards
             playerDropZone.setData({ cards: 0 });
